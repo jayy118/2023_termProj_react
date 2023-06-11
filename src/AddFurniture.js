@@ -48,7 +48,7 @@ class AddFurniture extends React.Component {
 
     render() {
         return (
-            <div style={{margin: "20px", paddingTop: "20px", paddingBottom: "20px", border: "1px solid"}}>
+            <div style={{margin: "20px", paddingTop: "20px", paddingBottom: "20px", border: "1px solid"}} hidden={this.props.value !== this.props.index}>
                 <div style={{ marginBottom: "10px"}}>
                     <p style={{display: "inline", marginRight: "10px"}}>title: </p>
                     <input

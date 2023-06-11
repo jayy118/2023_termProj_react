@@ -4,8 +4,18 @@ import AddFurniture from './AddFurniture'
 import SearchFurniture from './SearchFurniture'
 import DeleteFurniture from './DeleteFurniture';
 import UpdateFurniture from './UpdateFurniture';
-import { call, get } from "./service/ApiService"
-import { Container} from "@material-ui/core";
+import { call, get, signout } from "./service/ApiService"
+import {
+  Container,
+  Grid,
+  Button,
+  AppBar,
+  Toolbar,
+  Typography,
+  Tab,
+  Tabs,
+  Box
+} from "@material-ui/core";
 import FurnitureRow from './FurnitureRow';
 
 class App extends React.Component {
@@ -14,8 +24,19 @@ class App extends React.Component {
     this.state = {
       items: [ ],
       loading: true,
+      value: 0,
     };
     this.data = [ ]
+  }
+
+  a11yProps = (index) => {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
+  handleChange = (event, newValue) => {
+    this.setState({ value: newValue });
   }
 
   add = (item) => {
@@ -50,7 +71,7 @@ class App extends React.Component {
   }
 
   render() {
-    var furnitureItems = this.state.items.length > 0 && (
+    var furnitureItems = (
       <table style={{ border: "1px solid"}} width={700}>
         <caption>Furniture item table</caption>
         <thead>
@@ -75,14 +96,38 @@ class App extends React.Component {
       </table>
     );
 
+    var navigationBar = (
+      <AppBar position="static">
+        <Toolbar>
+          <Grid justify="space-between" container>
+            <Grid item>
+              <Typography variant="h6">가구 쇼핑몰</Typography>
+            </Grid>
+            <Tabs value={this.state.value} onChange={this.handleChange} >
+                <Tab label="추가" {...this.a11yProps(0)} />
+                <Tab label="검색" {...this.a11yProps(1)} />
+                <Tab label="수정" {...this.a11yProps(2)} />
+                <Tab label="삭제" {...this.a11yProps(4)} />
+              </Tabs>
+            <Grid>
+              <Button color="inherit" onClick={signout}>
+                로그아웃
+              </Button>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    );
+
     var funitureListPage = (
       <div>
+        {navigationBar}
         <Container maxWidth="md">
-          <AddFurniture add={this.add} />
-          <SearchFurniture search={this.search} print={this.componentDidMount} />
-          <UpdateFurniture update={this.update} search={this.search} />
-          <DeleteFurniture delete={this.delete} search={this.search} print={this.componentDidMount} />
-          <div className="FurnitureList">{furnitureItems}</div>
+          <AddFurniture add={this.add} value={this.state.value} index={0} />
+          <SearchFurniture search={this.search} print={this.componentDidMount}  value={this.state.value} index={1}/>
+          <UpdateFurniture update={this.update} search={this.search}  value={this.state.value} index={2}/>
+          <DeleteFurniture delete={this.delete} search={this.search} print={this.componentDidMount}  value={this.state.value} index={3}/>
+          <div className="FurnitureList" align="center">{furnitureItems}</div>
         </Container>
       </div>
     );
