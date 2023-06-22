@@ -39,6 +39,7 @@ class SearchFurniture extends React.Component {
 
     onButtonClick = () => {
         const thisItem = this.state.item;
+        console.log(this.state.item.title)
         get("/item", "GET", this.state.item.title).then((response) => {
             const data = response.data['0'];
             thisItem.title = data['title'];
@@ -64,7 +65,6 @@ class SearchFurniture extends React.Component {
                     <input
                         id='title'
                         type='text'
-                        fullWidth
                         onChange={this.onTitleInputChange}
                         value={this.state.item.title} 
                     />
@@ -75,7 +75,6 @@ class SearchFurniture extends React.Component {
                     <input
                         id='type'
                         type='text'
-                        fullWidth
                         onChange={this.onTypeInputChange}
                         value={this.state.item.type} 
                     />
@@ -85,7 +84,6 @@ class SearchFurniture extends React.Component {
                     <input
                         id='brand'
                         type='text'
-                        fullWidth
                         onChange={this.onBrandInputChange}
                         value={this.state.item.brand} 
                     />
@@ -95,7 +93,6 @@ class SearchFurniture extends React.Component {
                     <input
                         id='userId'
                         type='text'
-                        fullWidth
                         onChange={this.onuserIdInputChange}
                         value={this.state.item.userId} 
                     />

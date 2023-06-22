@@ -14,7 +14,8 @@ import {
   Typography,
   Tab,
   Tabs,
-  Box
+  Box,
+  colors
 } from "@material-ui/core";
 import FurnitureRow from './FurnitureRow';
 
@@ -97,9 +98,9 @@ class App extends React.Component {
     );
 
     var navigationBar = (
-      <AppBar position="static">
+      <AppBar position="static" color="secondary">
         <Toolbar>
-          <Grid justify="space-between" container>
+          <Grid justifyContent="space-between" container>
             <Grid item>
               <Typography variant="h6">가구 쇼핑몰</Typography>
             </Grid>

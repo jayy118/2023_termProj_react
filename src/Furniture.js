@@ -57,7 +57,6 @@ class Furniture extends React.Component {
                         name={item.id}
                         value={item.title}
                         multiline={true}
-                        fullWidth={true}
                         onClick={this.offReadOnlyMode}
                         onChange={this.editEventHandler}
                         onKeyPress={this.enterKeyEventHandler}

@@ -68,7 +68,6 @@ class DeleteFurniture extends React.Component {
                     <input
                         id='title'
                         type='text'
-                        fullWidth
                         onChange={this.onTitleInputChange}
                         value={this.state.item.title} 
                     />

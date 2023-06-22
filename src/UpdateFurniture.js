@@ -65,7 +65,6 @@ class UpdateFurniture extends React.Component {
                     <input
                         id='title'
                         type='text'
-                        fullWidth
                         onChange={this.onTitleInputChange}
                         value={this.state.item.title} 
                     />
@@ -76,7 +75,6 @@ class UpdateFurniture extends React.Component {
                     <input
                         id='type'
                         type='text'
-                        fullWidth
                         onChange={this.onTypeInputChange}
                         value={this.state.item.type} 
                     />
@@ -86,7 +84,6 @@ class UpdateFurniture extends React.Component {
                     <input
                         id='brand'
                         type='text'
-                        fullWidth
                         onChange={this.onBrandInputChange}
                         value={this.state.item.brand} 
                     />
@@ -96,7 +93,6 @@ class UpdateFurniture extends React.Component {
                     <input
                         id='userId'
                         type='text'
-                        fullWidth
                         onChange={this.onuserIdInputChange}
                         value={this.state.item.userId} 
                     />

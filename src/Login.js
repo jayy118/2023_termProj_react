@@ -42,7 +42,6 @@ class Login extends React.Component {
               <TextField
                 variant="outlined"
                 required
-                fullWidth
                 id="email"
                 label="이메일 주소"
                 name="email"
@@ -53,7 +52,6 @@ class Login extends React.Component {
               <TextField
                 variant="outlined"
                 required
-                fullWidth
                 name="password"
                 label="패스워드"
                 type="password"
@@ -64,7 +62,6 @@ class Login extends React.Component {
             <Grid item xs={12}>
               <Button
                 type="submit"
-                fullWidth
                 variant="contained"
                 color="primary"
               >
